@@ -5,9 +5,10 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\UserRepository;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
-class User implements UserInterface 
+class User implements UserInterface,  PasswordAuthenticatedUserInterface
 {
     #[ORM\Id] 
     #[ORM\GeneratedValue]
@@ -50,12 +51,20 @@ class User implements UserInterface
     public function getRoles(): array
     {
         // Retournez les rôles de l'utilisateur sous forme de tableau
-        return ['ROLE_USER'];
+        return ['ROLE_ADMIN'];
+    }
+
+    public function getSalt(): ?string
+    {
+        // Cette méthode est nécessaire lorsque vous utilisez l'algorithme de hachage "bcrypt" pour les mots de passe.
+        // Vous pouvez laisser cette méthode vide si vous utilisez un autre algorithme.
+        return null;
     }
 
     public function eraseCredentials()
     {
-        // Méthode requise par l'interface UserInterface, vous pouvez laisser cette méthode vide
+        // Cette méthode est requise par l'interface UserInterface.
+        // Vous pouvez laisser cette méthode vide si vous n'avez pas besoin de supprimer les informations sensibles de l'utilisateur.
     }
 
     public function getUserIdentifier(): string
