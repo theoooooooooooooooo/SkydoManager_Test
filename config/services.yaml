@@ -19,6 +19,9 @@ services:
             - '../src/DependencyInjection/'
             - '../src/Entity/'
             - '../src/Kernel.php'
+            
+    # Inclusion de la classe InfoLegalClient
+    App\Entity\InfoLegalClient: 
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

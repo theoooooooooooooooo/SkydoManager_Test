@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription Client{% endblock %}
+
+{% block body %}
+{% if app.user %}
+    <buton><a href="{{ path('app_logout') }}">Déconnexion</a></buton>
+{% endif %}
+
+<h1>Bienvenue veuillez remplir se formulaire pour compléter par la suite votre CGV et votre Mention Légales</h1>
+
+
+{% endblock %}

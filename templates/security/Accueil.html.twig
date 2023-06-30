@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block nav %}
+    {% include 'nav.html.twig' %}
+{% endblock %} 
+
+{% block body %}
+<h1>Bonjour</h1>
+
+{% if app.user %}
+    <buton><a href="{{ path('app_logout') }}">Déconnexion</a></buton>
+{% endif %}
+
+{% endblock %}

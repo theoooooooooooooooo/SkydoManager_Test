@@ -3,3 +3,17 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+
+app_login:
+    path: /login
+    controller: App\Controller\SecurityController::login
+
+mentionLegale:
+    path: '/mentionLegale/{id}'
+    controller: 'App\Controller\LegalController::route1'
+    methods: ['GET']
+
+
+app_legal_route0:
+    path: /Interaction
+    controller: App\Controller\LegalController::route0
