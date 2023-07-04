@@ -1,55 +1,55 @@
 <?php
 namespace App\Form;
 
-use App\Entity\InfoLegalClient;
+use App\Entity\Devis;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\TelType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 class DevisFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('siteEcom', TextType::class, [
-                'label' => 'Site Ecommerce',
-                'required' => true,
-            ])
-            ->add('siret', TextType::class, [
-                'siteVitrine' => 'Site Vitrine',
-                'required' => true,
-            ])
-            ->add('siteCustom', TextareaType::class, [
-                'label' => 'Site Custom',
-                'required' => true,
-            ])
-            ->add('maintenance', TextType::class, [
-                'label' => 'Maintenance & Sécurisation',
-                'required' => true,
-            ])
-            ->add('logo', EmailType::class, [
-                'label' => 'Création de logo',
-                'required' => true,
-            ])
-            ->add('identiteVisuelle', EmailType::class, [
-                'label' => 'Identité Visuelle',
-                'required' => true,
-            ])
-            ->add('print', EmailType::class, [
-                'label' => 'Flyer - 4/3 - Affiches',
-                'required' => true,
-            ]);
+        ->add('siteEcom', CheckboxType::class, [
+            'label' => 'Site Ecommerce',
+            'required' => false,
+        ])
+        ->add('siret', CheckboxType::class, [
+            'label' => 'Site Vitrine',
+            'required' => false,
+        ])
+        ->add('siteCustom', CheckboxType::class, [
+            'label' => 'Site Custom',
+            'required' => false,
+        ])
+        ->add('maintenance', CheckboxType::class, [
+            'label' => 'Maintenance & Sécurisation',
+            'required' => false,
+        ])
+        ->add('logo', CheckboxType::class, [
+            'label' => 'Création de logo',
+            'required' => false,
+        ])
+        ->add('identiteVisuelle', CheckboxType::class, [
+            'label' => 'Identité Visuelle',
+            'required' => false,
+        ])
+        ->add('print', CheckboxType::class, [
+            'label' => 'Flyer - 4/3 - Affiches',
+            'required' => false,
+        ])
+        ->add('shooting', CheckboxType::class, [
+            'label' => 'Shooting Photo',
+            'required' => false,
+        ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => InfoLegalClient::class,
+            'data_class' => Devis::class,
         ]);
     }
 }
