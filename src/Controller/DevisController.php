@@ -36,7 +36,10 @@ class DevisController extends AbstractController
                 'identiteVisuelle' => $devis->getIdentiteVisuelle(),
                 'print' => $devis->getPrint(),
         ]);
-        }   
+        }  
+        return $this->render('security/devis/formDevis.html.twig', [
+            'form' => $form->createView(),
+        ]); 
     }   
 
     #[Route('/recapitulatif', name: 'recapitulatif')]
