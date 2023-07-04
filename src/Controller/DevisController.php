@@ -17,7 +17,9 @@ class DevisController extends AbstractController
         $user = $this->getUser(); // Récupère l'utilisateur connecté
 
         $devis = new Devis();
-        $devis->setPrixEcom(2000);
+        $prixTotal = 0;
+
+        // $devis->setPrixEcom(2000);
         
         $form = $this->createForm(DevisFormType::class, $devis);
         $form->handleRequest($request);
