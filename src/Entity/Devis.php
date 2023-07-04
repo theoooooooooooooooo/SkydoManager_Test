@@ -205,98 +205,98 @@ class Devis
 
 //Prix
 
-    public function getPrixEcom(): ?string
+    public function getPrixEcom(): ?int
     {
-        return $this->prixEcom;
+        return $this->prixEcom !== null ? (int) $this->prixEcom : null;
     }
 
-    public function setPrixEcom(?string $prixEcom): static
+    public function setPrixEcom(?int $prixEcom): static
     {
-        $this->prixEcom = $prixEcom;
+        $this->prixEcom = $prixEcom !== null ? (string) $prixEcom : null;
 
         return $this;
     }
 
-    public function getPrixVitrine(): ?string
+    public function getPrixVitrine(): ?int
     {
-        return $this->prixVitrine;
+        return $this->prixVitrine !== null ? (int) $this->prixVitrine : null;
     }
 
-    public function setPrixVitrine(?string $prixVitrine): static
+    public function setPrixVitrine(?int $prixVitrine): static
     {
-        $this->prixVitrine = $prixVitrine;
-
-        return $this;
-    }
-    
-    public function getPrixCustom(): ?string
-    {
-        return $this->prixCustom;
-    }
-
-    public function setPrixCustom(?string $prixCustom): static
-    {
-        $this->prixCustom = $prixCustom;
+        $this->prixVitrine = $prixVitrine !== null ? (string) $prixVitrine : null;
 
         return $this;
     }
 
-    public function getPrixMaintenance(): ?string
+    public function getPrixCustom(): ?int
     {
-        return $this->prixMaintenance;
+        return $this->prixCustom !== null ? (int) $this->prixCustom : null;
     }
 
-    public function setPrixMaintenance(?string $prixMaintenance): static
+    public function setPrixCustom(?int $prixCustom): static
     {
-        $this->prixMaintenance = $prixMaintenance;
+        $this->prixCustom = $prixCustom !== null ? (string) $prixCustom : null;
 
         return $this;
     }
 
-    public function getPrixLogo(): ?string
+    public function getPrixMaintenance(): ?int
     {
-        return $this->print;
+        return $this->prixMaintenance !== null ? (int) $this->prixMaintenance : null;
     }
 
-    public function setPrixLogo(?string $prixLogo): static
+    public function setPrixMaintenance(?int $prixMaintenance): static
     {
-        $this->prixLogo = $prixLogo;
+        $this->prixMaintenance = $prixMaintenance !== null ? (string) $prixMaintenance : null;
 
         return $this;
     }
 
-    public function getPrixIdVisuelle(): ?string
+    public function getPrixLogo(): ?int
     {
-        return $this->prixIdVisuelle;
+        return $this->prixLogo !== null ? (int) $this->prixLogo : null;
     }
 
-    public function setPrixIdVisuelle(?string $prixIdVisuelle): static
+    public function setPrixLogo(?int $prixLogo): static
     {
-        $this->prixIdVisuelle = $prixIdVisuelle;
+        $this->prixLogo = $prixLogo !== null ? (string) $prixLogo : null;
 
         return $this;
     }
 
-    public function getPrixPrint(): ?string
+    public function getPrixIdVisuelle(): ?int
     {
-        return $this->prixPrint;
+        return $this->prixIdVisuelle !== null ? (int) $this->prixIdVisuelle : null;
     }
 
-    public function setPrixPrint(?string $prixPrint): static
+    public function setPrixIdVisuelle(?int $prixIdVisuelle): static
     {
-        $this->prixPrint = $prixPrint;
+        $this->prixIdVisuelle = $prixIdVisuelle !== null ? (string) $prixIdVisuelle : null;
 
         return $this;
     }
 
-    public function getPrixShooting(): ?string
+    public function getPrixPrint(): ?int
     {
-        return $this->print;
+        return $this->prixPrint !== null ? (int) $this->prixPrint : null;
     }
 
-    public function setPrixShooting(?string $prixShooting): static
+    public function setPrixPrint(?int $prixPrint): static
     {
-        $this->prixShooting = $prixShooting;
+        $this->prixPrint = $prixPrint !== null ? (string) $prixPrint : null;
+
+        return $this;
+    }
+
+    public function getPrixShooting(): ?int
+    {
+        return $this->prixShooting !== null ? (int) $this->prixShooting : null;
+    }
+
+    public function setPrixShooting(?int $prixShooting): static
+    {
+        $this->prixShooting = $prixShooting !== null ? (string) $prixShooting : null;
 
         return $this;
     }

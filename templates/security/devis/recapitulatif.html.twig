@@ -8,7 +8,7 @@
 
 {% block body %}
     <h1>Récapitulatif du devis</h1>
-
+{% if user %}
     <table>
         <tr>
             <th>Désignation</th>
@@ -20,7 +20,7 @@
         <tr>
             <td>Site Ecommerce</td>
             <td>1</td>
-            <td>{{ prixSiteEcom }}</td>
+            <td>{{ prixSiteEcom }} €</td>
         </tr>
         {% endif %}
 
@@ -28,7 +28,7 @@
         <tr>
             <td>Site Vitrine</td>
             <td>1</td>
-            <td>{{ prixVitrine }}€</td>
+            <td>{{ prixVitrine }} €</td>
         </tr>
         {% endif %}
 
@@ -46,7 +46,7 @@
             <td>1</td>
             <td>{{ prixMaintenance }} €</td>
         </tr>
-        {% endif %}
+        {% endif %} 
 
         {% if logo is not empty %}
         <tr>
@@ -80,4 +80,5 @@
         </tr>
         {% endif %}
     </table>
+{% endif %}
 {% endblock %}

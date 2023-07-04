@@ -3,11 +3,12 @@ namespace App\Controller;
 
 use App\Entity\Devis;
 use App\Form\DevisFormType;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request; 
-use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\DevisRepository;
+use Symfony\Bundle\SecurityBundle\Security;
+use Symfony\Component\HttpFoundation\Request; 
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class DevisController extends AbstractController 
 {
@@ -27,14 +28,14 @@ class DevisController extends AbstractController
 
 
             // Définir les prix par défaut
-            $devis->setPrixEcom(2000,00);
-            $devis->setPrixVitrine(1000,00);
-            $devis->setPrixCustom(2000,0);
-            $devis->setPrixMaintenance(1000,00);
-            $devis->setPrixLogo(2000,00 );
-            $devis->setPrixIdVisuelle(2000,00 );
-            $devis->setPrixPrint(2000,00);
-            $devis->setPrixShooting(2000,00);
+            $devis->setPrixEcom($form->get('siteEcom')->getData() ? 2000.00 : null);
+            $devis->setPrixVitrine($form->get('siret')->getData() ? 1000.00 : null);
+            $devis->setPrixCustom($form->get('siteCustom')->getData() ? 2000.00 : null);
+            $devis->setPrixMaintenance($form->get('maintenance')->getData() ? 1000.00 : null);
+            $devis->setPrixLogo($form->get('logo')->getData() ? 2000.00 : null);
+            $devis->setPrixIdVisuelle($form->get('identiteVisuelle')->getData() ? 2000.00 : null);
+            $devis->setPrixPrint($form->get('print')->getData() ? 2000.00 : null);
+            $devis->setPrixShooting($form->get('shooting')->getData() ? 2000.00 : null);
  
             $devisRepository->save($devis, true);
 
@@ -63,9 +64,17 @@ class DevisController extends AbstractController
         ]); 
     }   
 
-    #[Route('/recapitulatif', name: 'recapitulatif')]
-    public function recapitulatifAction(Request $request): Response
+    #[Route('/recapitulatif', name: 'recapitulatif', methods: ['GET'])]
+    public function recapitulatifAction(Request $request, Security $security): Response
     {
+        $user = $security->getUser(); // Récupère l'utilisateur connecté
+
+        // Vérifiez si l'utilisateur est connecté
+        if (!$user) {
+            // Gérez le cas où l'utilisateur n'est pas connecté, par exemple, redirigez-le vers la page de connexion
+            return $this->redirectToRoute('app_login');
+        }
+
         // Récupérer les choix du formulaire depuis les paramètres de l'URL
         $siteEcom = $request->query->get('siteEcom');
         $siret = $request->query->get('siret');
@@ -85,6 +94,7 @@ class DevisController extends AbstractController
         $prixShooting = $request->query->get('prixShooting');
 
         return $this->render('security/devis/recapitulatif.html.twig', [
+            'user' => $user, // Passer l'objet utilisateur au template
             'siteEcom' => $siteEcom,
             'siret' => $siret,
             'siteCustom' => $siteCustom,
