@@ -3,10 +3,10 @@
 {% block body %}
 <h1>Formulaire légal</h1>
 <div class="form">
-    <form method="POST" action="{{path('legal')}}">
+    <form>
         {{ form_start(form) }}
         {{ form_widget(form) }}
-        <button type="submit">Enregistrer</button>
+        <button type="submit">Soumettre</button>
         {{ form_end(form) }}
     </form>
 </div>

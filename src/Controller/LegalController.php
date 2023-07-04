@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\InfoLegalClientRepository;
 use Symfony\Component\HttpFoundation\Response;
 
-class LegalController extends AbstractController
+class LegalController extends AbstractController 
 {
     #[Route('/legal', name: 'legal', methods: ['GET', 'POST'])] 
     public function legalAction(Request $request, InfoLegalClientRepository $legalRepository)
@@ -28,6 +28,7 @@ class LegalController extends AbstractController
 
             // Redirigez vers une page de confirmation ou autre
             return $this->redirectToRoute('interaction');
+
         }
 
         return $this->render('security/legal/form.html.twig', [
