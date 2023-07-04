@@ -11,8 +11,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 class DevisController extends AbstractController 
 {
-    #[Route('/devis', name: 'formDevis', methods: ['GET', 'POST'])] 
-    public function legalAction(Request $request, DevisRepository $legalRepository)
+    #[Route('/devis', name: 'devis', methods: ['GET', 'POST'])] 
+    public function legalAction(Request $request, DevisRepository $devisRepository)
     {
         $user = $this->getUser(); // Récupère l'utilisateur connecté
 
@@ -24,28 +24,42 @@ class DevisController extends AbstractController
 
             $devis->setIdClient($user);
  
-            $legalRepository->save($devis, true);
+            $devisRepository->save($devis, true);
 
             // Redirigez vers une page de confirmation ou autre
-            return $this->redirectToRoute('interaction');
-
-        }
-
-        return $this->render('security/legal/form.html.twig', [
-            'form' => $form->createView(),
+            return $this->redirectToRoute('recapitulatif', [
+                'siteEcom' => $devis->getSiteEcom(),
+                'siret' => $devis->getSiret(),
+                'siteCustom' => $devis->getSiteCustom(),
+                'maintenance' => $devis->getMaintenance(),
+                'logo' => $devis->getLogo(),
+                'identiteVisuelle' => $devis->getIdentiteVisuelle(),
+                'print' => $devis->getPrint(),
         ]);
-    }
+        }   
+    }   
 
-    #[Route('/devis', name: 'devis')]
-    public function route0(DevisRepository $devisRepository): Response
+    #[Route('/recapitulatif', name: 'recapitulatif')]
+    public function recapitulatifAction(Request $request): Response
     {
-        $user = $this->getUser(); // Récupère l'utilisateur connecté
-        $legal = $devisRepository->findBy(['idClient' => $user]);
+        // Récupérer les choix du formulaire depuis les paramètres de l'URL
+        $siteEcom = $request->query->get('siteEcom');
+        $siret = $request->query->get('siret');
+        $siteCustom = $request->query->get('siteCustom');
+        $maintenance = $request->query->get('maintenance');
+        $logo = $request->query->get('logo');
+        $identiteVisuelle = $request->query->get('identiteVisuelle');
+        $print = $request->query->get('print');
 
-        return $this->render('security/devis/consultDevis.html.twig', [
-            'legal' => $legal,
+        return $this->render('security/devis/recapitulatif.html.twig', [
+            'siteEcom' => $siteEcom,
+            'siret' => $siret,
+            'siteCustom' => $siteCustom,
+            'maintenance' => $maintenance,
+            'logo' => $logo,
+            'identiteVisuelle' => $identiteVisuelle,
+            'print' => $print,
         ]);
     }
 }
-
 ?>

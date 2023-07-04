@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recapitulatif{% endblock %}
+
+{% block nav %}
+    {% include 'nav.html.twig' %}
+{% endblock %} 
+
+{% block body %}
+    <h1>Récapitulatif du devis</h1>
+
+    {% if siteEcom is not null %}
+        <p>Site Ecommerce : {{ siteEcom ? 'Oui' : 'Non' }}</p>
+    {% endif %}
+
+    {% if siret is not null %}
+        <p>Site Vitrine : {{ siret ? 'Oui' : 'Non' }}</p>
+    {% endif %}
+
+    {% if siteCustom is not null %}
+        <p>Site Custom : {{ siteCustom ? 'Oui' : 'Non' }}</p>
+    {% endif %}
+
+    {% if maintenance is not null %}
+        <p>Maintenance & Sécurisation : {{ maintenance ? 'Oui' : 'Non' }}</p>
+    {% endif %}
+
+    {% if logo is not null %}
+        <p>Création de logo : {{ logo ? 'Oui' : 'Non' }}</p>
+    {% endif %}
+
+    {% if identiteVisuelle is not null %}
+        <p>Identité Visuelle : {{ identiteVisuelle ? 'Oui' : 'Non' }}</p>
+    {% endif %}
+
+    {% if print is not null %}
+        <p>Flyer - 4/3 - Affiches : {{ print ? 'Oui' : 'Non' }}</p>
+    {% endif %}
+{% endblock %}
