@@ -27,16 +27,16 @@ class DevisController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            // Ajouter le prix des autres prestations au prix total
-            $prixTotal += $devis->getPrixEcom();
-            $prixTotal += $devis->getSiteCustom();
-            $prixTotal += $devis->getMaintenance();
-            $prixTotal += $devis->getLogo();
-            $prixTotal += $devis->getIdentiteVisuelle();
-            $prixTotal += $devis->getPrint();
-            $prixTotal += $devis->getShooting();
+            // // Ajouter le prix des autres prestations au prix total
+            // $prixTotal += $devis->getPrixEcom();
+            // $prixTotal += $devis->getSiteCustom();
+            // $prixTotal += $devis->getMaintenance();
+            // $prixTotal += $devis->getLogo();
+            // $prixTotal += $devis->getIdentiteVisuelle();
+            // $prixTotal += $devis->getPrint();
+            // $prixTotal += $devis->getShooting();
 
-            $devis->setPrixTotal($prixTotal);
+            // $devis->setPrixTotal($prixTotal);
 
             $devis->setIdClient($user);
 
@@ -50,7 +50,19 @@ class DevisController extends AbstractController
             $devis->setPrixIdVisuelle($form->get('identiteVisuelle')->getData() ? 2000.00 : null);
             $devis->setPrixPrint($form->get('print')->getData() ? 2000.00 : null);
             $devis->setPrixShooting($form->get('shooting')->getData() ? 2000.00 : null);
- 
+
+            // Ajouter le prix des autres prestations au prix total
+            $prixTotal += $devis->getPrixEcom() !== null ? (int)$devis->getPrixEcom() : 0;
+            $prixTotal += $devis->getPrixVitrine() !== null ? (int)$devis->getPrixVitrine() : 0;
+            $prixTotal += $devis->getPrixCustom() !== null ? (int)$devis->getPrixCustom() : 0;
+            $prixTotal += $devis->getPrixMaintenance() !== null ? (int)$devis->getPrixMaintenance() : 0;
+            $prixTotal += $devis->getPrixLogo() !== null ? (int)$devis->getPrixLogo() : 0;
+            $prixTotal += $devis->getPrixIdVisuelle() !== null ? (int)$devis->getPrixIdVisuelle() : 0;
+            $prixTotal += $devis->getPrixPrint() !== null ? (int)$devis->getPrixPrint() : 0;
+            $prixTotal += $devis->getPrixShooting() !== null ? (int)$devis->getPrixShooting() : 0;
+            
+            $devis->setPrixTotal($prixTotal);
+
             $devisRepository->save($devis, true);
 
             // Redirigez vers une page de confirmation ou autre
@@ -71,6 +83,7 @@ class DevisController extends AbstractController
                 'prixIdVisuelle' => $devis->getPrixIdVisuelle(),
                 'prixPrint' => $devis->getPrixPrint(),
                 'prixShooting' => $devis->getPrixShooting(),
+                'prixTotal' => $devis->getPrixTotal(),
         ]);
     }
         return $this->render('security/devis/formDevis.html.twig', [
@@ -106,6 +119,7 @@ class DevisController extends AbstractController
         $prixIdVisuelle = $request->query->get('prixIdVisuelle');
         $prixPrint = $request->query->get('prixPrint');
         $prixShooting = $request->query->get('prixShooting');
+        $prixTotal = $request->query->get('prixTotal');
 
         return $this->render('security/devis/recapitulatif.html.twig', [
             'user' => $user, // Passer l'objet utilisateur au template
@@ -125,6 +139,7 @@ class DevisController extends AbstractController
             'prixIdVisuelle' => $prixIdVisuelle,
             'prixPrint' => $prixPrint,
             'prixShooting' => $prixShooting,
+            'prixTotal' => $prixTotal,
         ]);
     }
 }

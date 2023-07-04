@@ -42,29 +42,29 @@ class Devis
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $shooting = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $prixEcom = null;
-
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $prixVitrine = null;
-
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $prixCustom = null;
-
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $prixMaintenance = null;
-
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $prixLogo = null;
-
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $prixIdVisuelle = null;
-
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $prixPrint = null;
-
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $prixShooting = null;
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private ?int $prixEcom = null;
+    
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private ?int $prixVitrine = null;
+    
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private ?int $prixCustom = null;
+    
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private ?int $prixMaintenance = null;
+    
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private ?int $prixLogo = null;
+    
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private ?int $prixIdVisuelle = null;
+    
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private ?int $prixPrint = null;
+    
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private ?int $prixShooting = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $quantiteEcom = null;
@@ -304,12 +304,12 @@ class Devis
         return $this;
     }
 
-    public function getPrixTotal(): ?string
+    public function getPrixTotal(): ?int
     {
         return $this->prixTotal;
     }
 
-    public function setPrixTotal(?string $prixTotal): static
+    public function setPrixTotal(?int $prixTotal): static
     {
         $this->prixTotal = $prixTotal;
 
