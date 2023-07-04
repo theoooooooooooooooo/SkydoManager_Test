@@ -7,8 +7,7 @@
 {% endblock %} 
 
 {% block body %}
-    <h1>Veuillez cliquer sur les différents liens pour vérifier les mentions légales et les CGV</h1>
-
+<h1>Veuillez cliquer sur les différents liens pour vérifier les mentions légales et les CGV</h1>
     {% for item in legal %}
         <button><a href="{{ path('mentionLegale', {id: item.id}) }}">Mentions légales pour le client</a></button>
         <br>

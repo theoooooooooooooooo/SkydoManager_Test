@@ -13,7 +13,6 @@ mentionLegale:
     controller: 'App\Controller\LegalController::route1'
     methods: ['GET']
 
-
 app_legal_route0:
     path: /Interaction
     controller: App\Controller\LegalController::route0

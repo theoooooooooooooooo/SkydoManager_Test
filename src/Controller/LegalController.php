@@ -39,6 +39,7 @@ class LegalController extends AbstractController
     public function route0(InfoLegalClientRepository $legalRepository): Response
     {
         $user = $this->getUser(); // Récupère l'utilisateur connecté
+        
         $legal = $legalRepository->findBy(['idClient' => $user]);
 
         return $this->render('security/legal/interaction.html.twig', [

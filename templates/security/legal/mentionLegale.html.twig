@@ -7,58 +7,71 @@
 {% endblock %} 
 
 {% block body %}
-{% for item in legal %}
-    <p>
-        Conformément aux dispositions de la loi n° 2004-575 du 21 juin pour la confiance en l'économie numérique, 
-        il est précisé aux utilisateurs du site {{ item.NomSite }} l'identité des différents intervenants dans le cadre de sa 
-        réalisation et de son suivi.
-    </p>
-    <p>
-        Editeur du site :
+<h1> Mention Légales </h1>
+    {# {% for item in legal %} #}
+        <p>
+            Conformément aux dispositions de la loi n° 2004-575 du 21 juin pour la confiance en l'économie numérique, 
+            il est précisé aux utilisateurs du site {{ legal.NomSite }} l'identité des différents intervenants dans le cadre de sa 
+            réalisation et de son suivi.
+        </p>
+        <p>
+            Editeur du site :<br>
 
-        Raison sociale : {{ item.raisonSociale }}
-        Siret : {{ item.siret }}
-        Adresse : {{ item.adresse }}
-        URL du site : {{ item.urlSite }}
-        Mail : {{ item.email }}
-        Téléphone : {{ item.telephone }}
-    </p>
-    <p>
-        Hébergement :
+            Raison sociale : {{ legal.raisonSociale }}<br>
 
-        Coordonnées de l'hébergeur
-    </p>
-    <p>
-        Directeur de publication :
+            Siret : {{ legal.siret }}<br>
 
-        Le directeur de publication du site est {{ item.DirecteurPublication }} 
-    </p>
-    <p>
-        Données personnelles :
-        Conformément à la Loi Informatique et Libertés du 6 janvier 1978, vous disposez des droits d’interrogation, 
-        d’accès, de modification, d’opposition et de rectification sur les données personnelles vous concernant
-        Vous pouvez exercer ce droit à tout moment auprès de l’administrateur du site en prenant contact avec nous 
-        par {{ item.MoyenContact }} 
-    </p>
-    <p>
-        Propriété intellectuelle
-        Le vendeur est le seul titulaire de tous les éléments présent sur le site, notamment et sans limitation, tous 
-        textes, fichiers, images animées ou non, photographies, vidéos, logos, dessins, modèles, logiciels, marques, 
-        identité visuelle, base de données, structure du site et tous autres éléments de propriété intellectuelle et 
-        autres données ou informations (ci-après, les « Éléments ») qui sont protégés par les lois et règlements français 
-        et internationaux relatifs notamment à la propriété intellectuelle.
-        Toute reproduction partielle ou totale, modification ou utilisation de ces éléments est strictement interdite.
-    </p>
-    <p>
-        Cookies :
-        Notre site {{ item.NomSite }}  peut vous demander l'acceptation des cookies. Un cookie est une information déposée sur votre disque
-        dur par le serveur du site que vous visitez
-    </p>
-    <p>
-        Il existe deux types de cookies :</br>
-        – les cookies de session sont supprimés de votre ordinateur lorsque vous fermez votre navigateur.</br>
-        – les cookies permanents restent stockés sur votre ordinateur après la fermeture du navigateur.
-        Les cookies sont cependant anonymes et ne sont en aucun cas utilisés pour collecter des informations personnelles.
-    </p>
-{% endfor %}
+            Adresse : {{ legal.adresse }}<br>
+
+            URL du site : {{ legal.urlSite }}<br>
+
+            Mail : {{ legal.email }}<br>
+
+            Téléphone : {{ legal.telephone }}
+
+        </p>
+        <p>
+            Hébergement :<br>
+
+
+            Coordonnées de l'hébergeur
+
+        </p>
+        <p>
+            Directeur de publication :<br>
+
+
+            Le directeur de publication du site est {{ legal.DirecteurPublication }}
+
+        </p>
+        <p>
+            Données personnelles :<br>
+
+            Conformément à la Loi Informatique et Libertés du 6 janvier 1978, vous disposez des droits d’interrogation, 
+            d’accès, de modification, d’opposition et de rectification sur les données personnelles vous concernant
+            Vous pouvez exercer ce droit à tout moment auprès de l’administrateur du site en prenant contact avec nous 
+            par {{ legal.MoyenContact }} 
+        </p>
+        <p>
+            Propriété intellectuelle<br>
+
+            Le vendeur est le seul titulaire de tous les éléments présent sur le site, notamment et sans limitation, tous 
+            textes, fichiers, images animées ou non, photographies, vidéos, logos, dessins, modèles, logiciels, marques, 
+            identité visuelle, base de données, structure du site et tous autres éléments de propriété intellectuelle et 
+            autres données ou informations (ci-après, les « Éléments ») qui sont protégés par les lois et règlements français 
+            et internationaux relatifs notamment à la propriété intellectuelle.
+            Toute reproduction partielle ou totale, modification ou utilisation de ces éléments est strictement interdite.
+        </p>
+        <p>
+            Cookies :<br>
+            Notre site {{ legal.NomSite }}  peut vous demander l'acceptation des cookies. Un cookie est une information déposée sur votre disque
+            dur par le serveur du site que vous visitez
+        </p>
+        <p>
+            Il existe deux types de cookies :</br>
+            – les cookies de session sont supprimés de votre ordinateur lorsque vous fermez votre navigateur.</br>
+            – les cookies permanents restent stockés sur votre ordinateur après la fermeture du navigateur.<br>
+            Les cookies sont cependant anonymes et ne sont en aucun cas utilisés pour collecter des informations personnelles.
+        </p>
+    {# {% endfor %} #}
 {% endblock %}
