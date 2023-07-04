@@ -24,6 +24,17 @@ class DevisController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
+            // Ajouter le prix des autres prestations au prix total
+            $prixTotal += $devis->getPrixEcom();
+            $prixTotal += $devis->getSiteCustom();
+            $prixTotal += $devis->getMaintenance();
+            $prixTotal += $devis->getLogo();
+            $prixTotal += $devis->getIdentiteVisuelle();
+            $prixTotal += $devis->getPrint();
+            $prixTotal += $devis->getShooting();
+
+            $devis->setPrixTotal($prixTotal);
+
             $devis->setIdClient($user);
  
             $devisRepository->save($devis, true);
@@ -38,9 +49,10 @@ class DevisController extends AbstractController
                 'identiteVisuelle' => $devis->getIdentiteVisuelle(),
                 'print' => $devis->getPrint(),
                 'shooting' => $devis->getShooting(),
-                'prixSiteEcom' => $devis->getPrixEcom()
+                'prixSiteEcom' => $devis->getPrixEcom(),
+                'prixTotal' => $devis->getPrixTotal()
         ]);
-        }  
+    }
         return $this->render('security/devis/formDevis.html.twig', [
             'form' => $form->createView(),
         ]); 
@@ -70,7 +82,6 @@ class DevisController extends AbstractController
             'identiteVisuelle' => $identiteVisuelle,
             'print' => $print,
             'shooting' => $shooting,
-            'prixSiteEcom' => $prixSiteEcom,
         ]);
     }
 }
