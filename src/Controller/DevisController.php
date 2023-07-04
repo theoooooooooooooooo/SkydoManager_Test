@@ -17,6 +17,8 @@ class DevisController extends AbstractController
         $user = $this->getUser(); // Récupère l'utilisateur connecté
 
         $devis = new Devis();
+        $devis->setPrixEcom(2000);
+        
         $form = $this->createForm(DevisFormType::class, $devis);
         $form->handleRequest($request);
 
@@ -36,6 +38,7 @@ class DevisController extends AbstractController
                 'identiteVisuelle' => $devis->getIdentiteVisuelle(),
                 'print' => $devis->getPrint(),
                 'shooting' => $devis->getShooting(),
+                'prixSiteEcom' => $devis->getPrixEcom()
         ]);
         }  
         return $this->render('security/devis/formDevis.html.twig', [
@@ -55,6 +58,8 @@ class DevisController extends AbstractController
         $identiteVisuelle = $request->query->get('identiteVisuelle');
         $print = $request->query->get('print');
         $shooting = $request->query->get('shooting');
+        $prixSiteEcom = $request->query->get('prixSiteEcom');
+        
 
         return $this->render('security/devis/recapitulatif.html.twig', [
             'siteEcom' => $siteEcom,
@@ -65,6 +70,7 @@ class DevisController extends AbstractController
             'identiteVisuelle' => $identiteVisuelle,
             'print' => $print,
             'shooting' => $shooting,
+            'prixSiteEcom' => $prixSiteEcom,
         ]);
     }
 }
