@@ -17,14 +17,24 @@ class DevisController extends AbstractController
         $user = $this->getUser(); // Récupère l'utilisateur connecté
 
         $devis = new Devis();
-        $devis->setPrixEcom(2000);
-        
+
         $form = $this->createForm(DevisFormType::class, $devis);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
 
             $devis->setIdClient($user);
+
+
+            // Définir les prix par défaut
+            $devis->setPrixEcom(2000,00);
+            $devis->setPrixVitrine(1000,00);
+            $devis->setPrixCustom(2000,0);
+            $devis->setPrixMaintenance(1000,00);
+            $devis->setPrixLogo(2000,00 );
+            $devis->setPrixIdVisuelle(2000,00 );
+            $devis->setPrixPrint(2000,00);
+            $devis->setPrixShooting(2000,00);
  
             $devisRepository->save($devis, true);
 
@@ -38,7 +48,14 @@ class DevisController extends AbstractController
                 'identiteVisuelle' => $devis->getIdentiteVisuelle(),
                 'print' => $devis->getPrint(),
                 'shooting' => $devis->getShooting(),
-                'prixSiteEcom' => $devis->getPrixEcom()
+                'prixSiteEcom' => $devis->getPrixEcom(),
+                'prixVitrine' => $devis->getPrixVitrine(),
+                'prixCustom' => $devis->getPrixCustom(),
+                'prixMaintenance' => $devis->getPrixMaintenance(),
+                'prixLogo' => $devis->getPrixLogo(),
+                'prixIdVisuelle' => $devis->getPrixIdVisuelle(),
+                'prixPrint' => $devis->getPrixPrint(),
+                'prixShooting' => $devis->getPrixShooting(),
         ]);
         }  
         return $this->render('security/devis/formDevis.html.twig', [
@@ -59,7 +76,13 @@ class DevisController extends AbstractController
         $print = $request->query->get('print');
         $shooting = $request->query->get('shooting');
         $prixSiteEcom = $request->query->get('prixSiteEcom');
-        
+        $prixVitrine = $request->query->get('prixVitrine');
+        $prixCustom = $request->query->get('prixCustom');
+        $prixMaintenance = $request->query->get('prixMaintenance');
+        $prixLogo = $request->query->get('prixLogo');
+        $prixIdVisuelle = $request->query->get('prixIdVisuelle');
+        $prixPrint = $request->query->get('prixPrint');
+        $prixShooting = $request->query->get('prixShooting');
 
         return $this->render('security/devis/recapitulatif.html.twig', [
             'siteEcom' => $siteEcom,
@@ -71,6 +94,13 @@ class DevisController extends AbstractController
             'print' => $print,
             'shooting' => $shooting,
             'prixSiteEcom' => $prixSiteEcom,
+            'prixVitrine' => $prixVitrine,
+            'prixCustom' => $prixCustom,
+            'prixMaintenance' => $prixMaintenance,
+            'prixLogo' => $prixLogo,
+            'prixIdVisuelle' => $prixIdVisuelle,
+            'prixPrint' => $prixPrint,
+            'prixShooting' => $prixShooting,
         ]);
     }
 }
