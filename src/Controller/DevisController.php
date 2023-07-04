@@ -27,7 +27,7 @@ class DevisController extends AbstractController
             $legalRepository->save($devis, true);
 
             // Redirigez vers une page de confirmation ou autre
-            return $this->redirectToRoute('interaction');
+            return $this->redirectToRoute('interactionDevis');
 
         }
 
