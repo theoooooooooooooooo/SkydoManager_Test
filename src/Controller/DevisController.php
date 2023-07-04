@@ -35,6 +35,7 @@ class DevisController extends AbstractController
                 'logo' => $devis->getLogo(),
                 'identiteVisuelle' => $devis->getIdentiteVisuelle(),
                 'print' => $devis->getPrint(),
+                'shooting' => $devis->getShooting(),
         ]);
         }  
         return $this->render('security/devis/formDevis.html.twig', [
@@ -53,6 +54,7 @@ class DevisController extends AbstractController
         $logo = $request->query->get('logo');
         $identiteVisuelle = $request->query->get('identiteVisuelle');
         $print = $request->query->get('print');
+        $shooting = $request->query->get('shooting');
 
         return $this->render('security/devis/recapitulatif.html.twig', [
             'siteEcom' => $siteEcom,
@@ -62,6 +64,7 @@ class DevisController extends AbstractController
             'logo' => $logo,
             'identiteVisuelle' => $identiteVisuelle,
             'print' => $print,
+            'shooting' => $shooting,
         ]);
     }
 }

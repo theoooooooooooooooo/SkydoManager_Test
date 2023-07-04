@@ -7,7 +7,6 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
-
 class DevisFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -39,6 +38,10 @@ class DevisFormType extends AbstractType
         ])
         ->add('print', CheckboxType::class, [
             'label' => 'Flyer - 4/3 - Affiches',
+            'required' => false,
+        ])
+        ->add('shooting', CheckboxType::class, [
+            'label' => 'Shooting Photo',
             'required' => false,
         ]);
     }

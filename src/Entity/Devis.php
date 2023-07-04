@@ -39,6 +39,9 @@ class Devis
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $print = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $shooting = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -136,6 +139,18 @@ class Devis
     public function setPrint(?string $print): static
     {
         $this->print = $print;
+
+        return $this;
+    }
+
+    public function getShooting(): ?string
+    {
+        return $this->shooting;
+    }
+
+    public function setShooting(?string $shooting): static
+    {
+        $this->shooting = $shooting;
 
         return $this;
     }
