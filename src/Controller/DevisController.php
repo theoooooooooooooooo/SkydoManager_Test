@@ -67,6 +67,7 @@ class DevisController extends AbstractController
 
             // Redirigez vers une page de confirmation ou autre
             return $this->redirectToRoute('recapitulatif', [
+                'id' => $devis->getId(),
                 'siteEcom' => $devis->getSiteEcom(),
                 'siret' => $devis->getSiret(),
                 'siteCustom' => $devis->getSiteCustom(),
@@ -91,16 +92,22 @@ class DevisController extends AbstractController
         ]); 
     }   
 
-    #[Route('/recapitulatif', name: 'recapitulatif', methods: ['GET'])]
-    public function recapitulatifAction(Request $request, Security $security): Response
+    #[Route('/InteractionDevis', name: 'interactionDevis')]
+    public function route4(DevisRepository $devisRepositoryy): Response
     {
-        $user = $security->getUser(); // Récupère l'utilisateur connecté
+        $user = $this->getUser(); // Récupère l'utilisateur connecté
+        
+        $devis = $devisRepositoryy->findBy(['idClient' => $user]);
 
-        // Vérifiez si l'utilisateur est connecté
-        if (!$user) {
-            // Gérez le cas où l'utilisateur n'est pas connecté, par exemple, redirigez-le vers la page de connexion
-            return $this->redirectToRoute('app_login');
-        }
+        return $this->render('security/devis/interaction.html.twig', [
+            'devis' => $devis,
+        ]);
+    }
+
+    #[Route('/recapitulatif/{id}', name: 'recapitulatif', methods: ['GET'])]
+    public function recapitulatifAction(int $id,Request $request, DevisRepository $devisRepository): Response
+    {
+        $devis = $devisRepository->find($id);
 
         // Récupérer les choix du formulaire depuis les paramètres de l'URL
         $siteEcom = $request->query->get('siteEcom');
@@ -122,7 +129,7 @@ class DevisController extends AbstractController
         $prixTotal = $request->query->get('prixTotal');
 
         return $this->render('security/devis/recapitulatif.html.twig', [
-            'user' => $user, // Passer l'objet utilisateur au template
+            'devis' => $devis,
             'siteEcom' => $siteEcom,
             'siret' => $siret,
             'siteCustom' => $siteCustom,

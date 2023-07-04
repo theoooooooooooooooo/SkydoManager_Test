@@ -15,69 +15,71 @@
             <th>Prix</th>
         </tr>
         
-        {% if siteEcom is not empty %}
+        {% if devis.prixEcom is not null %}
         <tr>
             <td>Site Ecommerce</td>
             <td>1</td>
-            <td>{{ prixSiteEcom }} €</td>
+            <td>{{ devis.prixEcom }} €</td>
         </tr>
         {% endif %}
 
-        {% if siret is not empty %}
+        {% if devis.prixVitrine is not null %}
         <tr>
             <td>Site Vitrine</td>
             <td>1</td>
-            <td>{{ prixVitrine }} €</td>
+            <td>{{ devis.prixVitrine }} €</td>
         </tr>
         {% endif %}
 
-        {% if siteCustom is not empty %}
+        {% if devis.prixCustom is not null %}
         <tr>
             <td>Site Custom</td>
             <td>1</td>
-            <td>{{ prixCustom }} €</td>
+            <td>{{ devis.prixCustom }} €</td>
         </tr>
         {% endif %}
 
-        {% if maintenance is not empty %}
+        {% if devis.prixMaintenance is not null %}
         <tr>
             <td>Maintenance & Sécurisation</td>
             <td>1</td>
-            <td>{{ prixMaintenance }} €</td>
+            <td>{{ devis.prixMaintenance }} €</td>
         </tr>
         {% endif %} 
 
-        {% if logo is not empty %}
+        {% if devis.prixLogo is not null %}
         <tr>
             <td>Création de logo</td>
             <td>1</td>
-            <td>{{ prixLogo }} €</td>
+            <td>{{ devis.prixLogo }} €</td>
         </tr>
         {% endif %}
 
-        {% if identiteVisuelle is not empty %}
+        {% if devis.prixIdVisuelle is not null %}
         <tr>
             <td>Identité Visuelle</td>
             <td>1</td>
-            <td>{{ prixIdVisuelle }} €</td>
+            <td>{{ devis.prixIdVisuelle }} €</td>
         </tr>
         {% endif %}
 
-        {% if print is not empty %}
+        {% if devis.prixPrint is not null %}
         <tr>
             <td>Flyer - 4/3 - Affiches</td>
             <td>1</td>
-            <td>{{ prixPrint }} €</td>
+            <td>{{ devis.prixPrint }} €</td>
         </tr>
         {% endif %}
 
-        {% if shooting is not empty %}
+        {% if devis.prixShooting is not null %}
         <tr>
             <td>Shooting photo</td>
             <td>1</td>
-            <td>{{ prixShooting }} €</td>
+            <td>{{ devis.prixShooting }} €</td>
         </tr>
         {% endif %}
+
     </table>
-    <p> {{ prixTotal }} €</p>
+    <p>{{ devis.prixTotal }} €</p>
 {% endblock %}
+
