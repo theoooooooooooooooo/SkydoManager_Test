@@ -18,11 +18,25 @@ class DevisController extends AbstractController
         $user = $this->getUser(); // Récupère l'utilisateur connecté
 
         $devis = new Devis();
+        $prixTotal = 0;
 
+        // $devis->setPrixEcom(2000);
+        
         $form = $this->createForm(DevisFormType::class, $devis);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            // Ajouter le prix des autres prestations au prix total
+            $prixTotal += $devis->getPrixEcom();
+            $prixTotal += $devis->getSiteCustom();
+            $prixTotal += $devis->getMaintenance();
+            $prixTotal += $devis->getLogo();
+            $prixTotal += $devis->getIdentiteVisuelle();
+            $prixTotal += $devis->getPrint();
+            $prixTotal += $devis->getShooting();
+
+            $devis->setPrixTotal($prixTotal);
 
             $devis->setIdClient($user);
 
@@ -58,7 +72,7 @@ class DevisController extends AbstractController
                 'prixPrint' => $devis->getPrixPrint(),
                 'prixShooting' => $devis->getPrixShooting(),
         ]);
-        }  
+    }
         return $this->render('security/devis/formDevis.html.twig', [
             'form' => $form->createView(),
         ]); 

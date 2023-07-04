@@ -90,6 +90,9 @@ class Devis
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $quantiteShooting = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $prixTotal = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -297,6 +300,18 @@ class Devis
     public function setPrixShooting(?int $prixShooting): static
     {
         $this->prixShooting = $prixShooting !== null ? (string) $prixShooting : null;
+
+        return $this;
+    }
+
+    public function getPrixTotal(): ?string
+    {
+        return $this->prixTotal;
+    }
+
+    public function setPrixTotal(?string $prixTotal): static
+    {
+        $this->prixTotal = $prixTotal;
 
         return $this;
     }
