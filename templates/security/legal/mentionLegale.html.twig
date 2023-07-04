@@ -7,21 +7,21 @@
 {% endblock %} 
 
 {% block body %}
-{% for item in legal %}
+{# {% for item in legal %} #}
     <p>
         Conformément aux dispositions de la loi n° 2004-575 du 21 juin pour la confiance en l'économie numérique, 
-        il est précisé aux utilisateurs du site {{ item.NomSite }} l'identité des différents intervenants dans le cadre de sa 
+        il est précisé aux utilisateurs du site {{ legal.NomSite }} l'identité des différents intervenants dans le cadre de sa 
         réalisation et de son suivi.
     </p>
     <p>
         Editeur du site :
 
-        Raison sociale : {{ item.raisonSociale }}
-        Siret : {{ item.siret }}
-        Adresse : {{ item.adresse }}
-        URL du site : {{ item.urlSite }}
-        Mail : {{ item.email }}
-        Téléphone : {{ item.telephone }}
+        Raison sociale : {{ legal.raisonSociale }}
+        Siret : {{ legal.siret }}
+        Adresse : {{ legal.adresse }}
+        URL du site : {{ legal.urlSite }}
+        Mail : {{ legal.email }}
+        Téléphone : {{ legal.telephone }}
     </p>
     <p>
         Hébergement :
@@ -31,14 +31,14 @@
     <p>
         Directeur de publication :
 
-        Le directeur de publication du site est {{ item.DirecteurPublication }} 
+        Le directeur de publication du site est {{ legal.DirecteurPublication }} 
     </p>
     <p>
         Données personnelles :
         Conformément à la Loi Informatique et Libertés du 6 janvier 1978, vous disposez des droits d’interrogation, 
         d’accès, de modification, d’opposition et de rectification sur les données personnelles vous concernant
         Vous pouvez exercer ce droit à tout moment auprès de l’administrateur du site en prenant contact avec nous 
-        par {{ item.MoyenContact }} 
+        par {{ legal.MoyenContact }} 
     </p>
     <p>
         Propriété intellectuelle
@@ -51,7 +51,7 @@
     </p>
     <p>
         Cookies :
-        Notre site {{ item.NomSite }}  peut vous demander l'acceptation des cookies. Un cookie est une information déposée sur votre disque
+        Notre site {{ legal.NomSite }}  peut vous demander l'acceptation des cookies. Un cookie est une information déposée sur votre disque
         dur par le serveur du site que vous visitez
     </p>
     <p>
@@ -60,5 +60,5 @@
         – les cookies permanents restent stockés sur votre ordinateur après la fermeture du navigateur.
         Les cookies sont cependant anonymes et ne sont en aucun cas utilisés pour collecter des informations personnelles.
     </p>
-{% endfor %}
+{# {% endfor %} #}
 {% endblock %}

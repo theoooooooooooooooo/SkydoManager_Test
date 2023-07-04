@@ -7,7 +7,7 @@
 {% endblock %} 
 
 {% block body %}
-{% for item in legal %}
+{# {% for item in legal %} #}
 CONDITIONS GENERALES DE VENTES
     <p>
         Les présentes conditions générales de ventes s’appliquent à toutes les ventes conclues sur le internet ..., sous réserve des conditions particulières indiquées dans la présentation des produits/services
@@ -16,12 +16,12 @@ CONDITIONS GENERALES DE VENTES
     <p>
         Editeur du site :
 
-        Raison sociale : {{ item.raisonSociale }}
-        Siret : {{ item.siret }}
-        Adresse : {{ item.adresse }}
-        URL du site : {{ item.urlSite }}
-        Mail : {{ item.email }}
-        Téléphone : {{ item.telephone }}
+        Raison sociale : {{ legal.raisonSociale }}
+        Siret : {{ legal.siret }}
+        Adresse : {{ legal.adresse }}
+        URL du site : {{ legal.urlSite }}
+        Mail : {{ legal.email }}
+        Téléphone : {{ legal.telephone }}
     </p>
     <p>
         Article 1 : Dispositions générales relatives aux conditions générales de vente.
@@ -34,7 +34,7 @@ CONDITIONS GENERALES DE VENTES
     </p>
     <p>
         Article 2 : Description des produits/services
-        Le site internet {{ item.NomSite }} commercialise les produits/services suivants :….
+        Le site internet {{ legal.NomSite }} commercialise les produits/services suivants :….
         Les produits/ services présentés sur le site font chacun l’objet d’un descriptif mentionnant leurs caractéristiques essentielles. 
         Ils sont proposés dans la limite des stocks disponibles.
         Les photographies ne sont pas contractuelles.
@@ -54,7 +54,7 @@ CONDITIONS GENERALES DE VENTES
         Le vendeur se réserve le droit de ne pas valider la commande de l’acheteur dans certains cas :
         Défaut de paiement
         Adresse postale ou mail erronée
-        Litige en cours de traitement
+        Litige en cours de tralegalent
         Problèmes avec le compte du client
     </p>
     <p>
@@ -67,7 +67,7 @@ CONDITIONS GENERALES DE VENTES
     <p>
        Article 5 : Paiement 
         Le paiement se fait immédiatement à la commande. 
-        Le client a, à sa disposition les modes de paiement suivants : {{ item.ModePaiement }}
+        Le client a, à sa disposition les modes de paiement suivants : {{ legal.ModePaiement }}
         La commande du client est enregistrée et validée dès acceptation du paiement par la banque.
         Le montant débité sera relatif au prix indiqué. 
         L’impossibilité de débiter les sommes dues entraînera la nullité immédiate de la vente.
@@ -79,10 +79,10 @@ CONDITIONS GENERALES DE VENTES
         La livraison se fait (pays) par (poste, colissimo…), avec des frais de : …
         La commande sera envoyée à l’adresse de livraison indiquée. Si l’acheteur est absent le jour de la livraison, le livreur laissera un 
         avis de passage dans la boîte aux lettres, qui permettra de retirer le colis dans les lieux et les délais indiqués.
-        Pour toute question relative au suivi d’une commande, l’acheteur peut contacter ce numéro {{ item.telephone }}: au jours et horaires 
-        suivant {{ item.JoursHoraire }}, ou 
-        envoyer un mail à l’adresse mail suivante {{ item.email }}
-        Les délais de livraison sont de : {{ item.delaisLivraison }}
+        Pour toute question relative au suivi d’une commande, l’acheteur peut contacter ce numéro {{ legal.telephone }}: au jours et horaires 
+        suivant {{ legal.JoursHoraire }}, ou 
+        envoyer un mail à l’adresse mail suivante {{ legal.email }}
+        Les délais de livraison sont de : {{ legal.delaisLivraison }}
 
     </p>
     <p>
@@ -90,8 +90,8 @@ CONDITIONS GENERALES DE VENTES
         Conformément au code de la consommation, pour tout achat en ligne, l’acheteur dispose d’un délai de rétractation de 14 jours à compter de 
         la date de livraison de sa commande, pour retourner le produit ne lui convenant pas et demander un échange (sous réserve de disponibilité) 
         ou un remboursement. Les frais de retour sont à la charge de l’acheteur.
-        Le droit de rétractation peut se faire via le formulaire de rétractation disponible sur le site, par mail à {{ item.email }} ou par voie postale à 
-        l’adresse suivante {{ item.adresse }}
+        Le droit de rétractation peut se faire via le formulaire de rétractation disponible sur le site, par mail à {{ legal.email }} ou par voie postale à 
+        l’adresse suivante {{ legal.adresse }}
         Le droit de rétractation ne s’applique pas pour les produits personnalisés, périssables, qui ne peuvent être renvoyés pour conditions d’hygiène 
         ou qui ne peuvent être réexpédiés.
         Les retours sont a effectuer dans leur état d’origine et complet. Les produits endommagés ou incomplet ne seront pas repris.
@@ -102,7 +102,7 @@ CONDITIONS GENERALES DE VENTES
         En cas de litige, le client devra contacter…
         En cas d’échec de la demande de réclamation auprès du service client ou en l’absence de réponse de ce service dans un délai de 15 jours ouvrés, le client
         peut soumettre le différend, à la Fédération professionnelle du e-commerce et de la vente à distance (FEVAD). 
-        Il peut le contacter soit par courrier à l’adresse 60 rue de la Boétie, 75008 Paris, soit sur le site à l’adresse {{ item.urlSite }}.
+        Il peut le contacter soit par courrier à l’adresse 60 rue de la Boétie, 75008 Paris, soit sur le site à l’adresse {{ legal.urlSite }}.
         Le médiateur tentera, en toute indépendance et impartialité, de rapprocher les parties en vue d’aboutir à une solution amiable.  Les parties restent libres 
         d’accepter ou de refuser le recours à la médiation ainsi que, en cas de recours à la médiation, d’accepter ou de refuser la solution proposée par le médiateur.
 
@@ -111,7 +111,7 @@ CONDITIONS GENERALES DE VENTES
        Article 9 : Garanties
         Conformément à la loi, le vendeur assume deux garanties : de conformité et relative aux vices cachés des produits. Le vendeur rembourse l'acheteur ou échange les 
         produits apparemment défectueux ou ne correspondant pas à la commande effectuée. L'acheteur doit d'abord prouver la nature du défaut afin que la demande soit acceptée. 
-        La demande de remboursement ou d’échange doit s'effectuer de la manière suivante : {{ item.NomSite }}
+        La demande de remboursement ou d’échange doit s'effectuer de la manière suivante : {{ legal.NomSite }}
         Le vendeur rappelle que le consommateur dispose d'un délai de 2 ans à compter de la délivrance du bien pour agir auprès du vendeur, qu'il peut choisir entre le 
         remplacement et la réparation du bien apparemment défectueux ou ne correspondant pas. Qu'il est dispensé d'apporter la preuve l’existence du défaut de conformité du bien 
         durant les six mois suivant la délivrance du bien. Que sauf biens d’occasion, ce délai sera porté à 24 mois. Que le consommateur peut également faire valoir la garantie 
@@ -125,8 +125,8 @@ CONDITIONS GENERALES DE VENTES
         données personnelles vous concernant. En adhérant à ces conditions générales de vente, vous consentez à : ce que nous collections et utilisions ces données pour la réalisation 
         du présent contrat. En saisissant votre adresse email sur l’un des sites de notre réseau, vous recevrez des emails ( Dans les cas où vous avez l'intention d'envoyer des mails qui 
         ne sont pas en lien avec l'achat du client,  veuillez préciser le type de contenu EX: newsletters, offres promotionnelles, nouveautés …) . Vous pouvez vous désinscrire à tout 
-        instant. Il vous suffit pour cela de cliquer sur le lien présent à la fin de nos emails ou de contacter le responsable du traitement (la Société) par lettre RAR. Nous effectuons 
+        instant. Il vous suffit pour cela de cliquer sur le lien présent à la fin de nos emails ou de contacter le responsable du tralegalent (la Société) par lettre RAR. Nous effectuons 
         sur l’ensemble de nos sites un suivi de la fréquentation. Pour cela, nous avons recours à des outils tels que Google Analytics et autres outils de statistiques.
     </p>
-{% endfor %}
+{# {% endfor %} #}
 {% endblock %}
