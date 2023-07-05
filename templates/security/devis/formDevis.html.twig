@@ -1,15 +1,26 @@
 {% extends 'base.html.twig' %}
 
-{% block nav %}
+{# {% block nav %}
     {% include 'nav.html.twig' %}
-{% endblock %} 
+{% endblock %}  #}
 
 {% block body %}
+
 <h1>Formulaire de demande de devis</h1>
 <div class="form">
     <form method="POST">
-        {{ form_start(form) }}
-        {{ form_widget(form) }}
+        <div class="form-container">
+            {% for field in form %}
+                <div class="form-row">
+                    <div class="form-label">
+                        {{ form_label(field, field.vars.label) }}
+                    </div>
+                    <div class="form-widget">
+                        {{ form_widget(field) }}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
         <button type="submit">Soumettre</button>
         {{ form_end(form) }}
     </form>

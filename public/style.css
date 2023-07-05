@@ -1,41 +1,11 @@
-body {
-    background-color: rgb(34, 34, 34);
-    color: white;
-}
+/* body {
+  background: linear-gradient(45deg, #102eff, #d2379b);
+  color: white;
+} */
 
-.navbar {
-    background-color: rgb(255, 0, 0);
-    padding: 10px;
-  }
-  
-  .navbar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .navbar ul li {
-    display: inline-block;
-  }
-   
-  .navbar ul li a {
-    display: block; 
-    padding: 10px;
-    text-decoration: none;
-    color: white;
-  }
-  
-  .navbar ul li a:hover {
-    background-color: #ee5151;
-  }
-
-  .texte-aleatoire {
-    border: 1px solid #ffffff;
-    padding: 10px;
-  }
-
+/* FORM style */
   .form {
-    width: 300px;
+    width: 00px;
     margin: 0 auto;
   }
   
@@ -46,6 +16,7 @@ body {
   
   .form input[type="text"],
   .form input[type="email"],
+  .form input[type="choice"],
   .form textarea {
     width: 100%;
     padding: 8px;
@@ -56,17 +27,7 @@ body {
   
   .form button {
     padding: 10px 20px;
-    background-color: #e70000;
-    color: #fff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-  }
-  
-  .form button:hover {
-    background-color: #0056b3;
-  }
-
-  p {
-    color: white;
   }

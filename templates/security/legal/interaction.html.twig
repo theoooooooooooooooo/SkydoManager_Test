@@ -8,10 +8,12 @@
 
 {% block body %}
 <h1>Veuillez cliquer sur les différents liens pour vérifier les mentions légales et les CGV</h1>
+<div class="content">
     {% for item in legal %}
         <button><a href="{{ path('mentionLegale', {id: item.id}) }}">Mentions légales pour le client</a></button>
         <br>
         <button><a href="{{ path('cgv', {id: item.id}) }}">CGV pour le client</a></button>
     {% endfor %}
+</div>
     
 {% endblock %}
