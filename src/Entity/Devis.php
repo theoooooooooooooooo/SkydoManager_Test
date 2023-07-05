@@ -208,36 +208,36 @@ class Devis
 
 //Prix
 
-    public function getPrixSiteEcom(): ?int
+    public function getPrixEcom(): ?int
     {
         return $this->prixEcom !== null ? (int) $this->prixEcom : null;
     }
 
-    public function setPrixSiteEcom(?int $prixEcom): static
+    public function setPrixEcom(?int $prixEcom): static
     {
         $this->prixEcom = $prixEcom !== null ? (string) $prixEcom : null;
 
         return $this;
     }
 
-    public function getPrixSiteVitrine(): ?int
+    public function getPrixVitrine(): ?int
     {
         return $this->prixVitrine !== null ? (int) $this->prixVitrine : null;
     }
 
-    public function setPrixSiteVitrine(?int $prixVitrine): static
+    public function setPrixVitrine(?int $prixVitrine): static
     {
         $this->prixVitrine = $prixVitrine !== null ? (string) $prixVitrine : null;
 
         return $this;
     }
 
-    public function getPrixSiteCustom(): ?int
+    public function getPrixCustom(): ?int
     {
         return $this->prixCustom !== null ? (int) $this->prixCustom : null;
     }
 
-    public function setPrixSiteCustom(?int $prixCustom): static
+    public function setPrixCustom(?int $prixCustom): static
     {
         $this->prixCustom = $prixCustom !== null ? (string) $prixCustom : null;
 
@@ -268,12 +268,12 @@ class Devis
         return $this;
     }
 
-    public function getPrixIdentiteVisuelle(): ?int
+    public function getPrixIdVisuelle(): ?int
     {
         return $this->prixIdVisuelle !== null ? (int) $this->prixIdVisuelle : null;
     }
 
-    public function setPrixIdentiteVisuelle(?int $prixIdVisuelle): static
+    public function setPrixIdVisuelle(?int $prixIdVisuelle): static
     {
         $this->prixIdVisuelle = $prixIdVisuelle !== null ? (string) $prixIdVisuelle : null;
 

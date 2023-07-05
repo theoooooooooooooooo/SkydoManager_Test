@@ -4,7 +4,6 @@ namespace App\Controller;
 use App\Entity\Devis;
 use App\Form\DevisFormType;
 use App\Repository\DevisRepository;
-use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\Request; 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -29,14 +28,14 @@ public function devisAction(Request $request, DevisRepository $devisRepository):
         // Calculate the prices based on the form data
         $prixTotal = 0;
         $services = [
-            'siteEcom' => ['price' => 2000.00, 'quantity' => $form->get('siteEcom')->getData()],
-            'siteVitrine' => ['price' => 1000.00, 'quantity' => $form->get('siteVitrine')->getData()],
-            'siteCustom' => ['price' => 2000.00, 'quantity' => $form->get('siteCustom')->getData()],
-            'maintenance' => ['price' => 1000.00, 'quantity' => $form->get('maintenance')->getData()],
-            'logo' => ['price' => 2000.00, 'quantity' => $form->get('logo')->getData()],
-            'identiteVisuelle' => ['price' => 2000.00, 'quantity' => $form->get('identiteVisuelle')->getData()],
-            'print' => ['price' => 2000.00, 'quantity' => $form->get('print')->getData()],
-            'shooting' => ['price' => 2000.00, 'quantity' => $form->get('shooting')->getData()],
+            'siteEcom' => ['price' => 2000.00, 'quantity' => $form->get('quantiteEcom')->getData()],
+            'siteVitrine' => ['price' => 1000.00, 'quantity' => $form->get('quantiteVitrine')->getData()],
+            'siteCustom' => ['price' => 2000.00, 'quantity' => $form->get('quantiteCustom')->getData()],
+            'maintenance' => ['price' => 1000.00, 'quantity' => $form->get('quantiteMaintenance')->getData()],
+            'logo' => ['price' => 2000.00, 'quantity' => $form->get('quantiteLogo')->getData()],
+            'identiteVisuelle' => ['price' => 2000.00, 'quantity' => $form->get('quantiteIdVisuelle')->getData()],
+            'print' => ['price' => 2000.00, 'quantity' => $form->get('quantitePrint')->getData()],
+            'shooting' => ['price' => 2000.00, 'quantity' => $form->get('quantiteShooting')->getData()],
         ];
 
         foreach ($services as $service => $data) {
@@ -47,13 +46,14 @@ public function devisAction(Request $request, DevisRepository $devisRepository):
 
             $prixTotal += $quantity * $price;
         }
-
+        
         $devis->setPrixTotal($prixTotal);
 
         $devisRepository->save($devis, true);
 
         // Redirect to a confirmation page or any other page
         return $this->redirectToRoute('recapitulatif', [
+            'id' => $devis->getId(),
             'siteEcom' => $form->get('siteEcom')->getData(),
             'siteVitrine' => $form->get('siteVitrine')->getData(),
             'siteCustom' => $form->get('siteCustom')->getData(),
@@ -86,19 +86,25 @@ public function devisAction(Request $request, DevisRepository $devisRepository):
         'form' => $form->createView(),
     ]);
 }
- 
+
+#[Route('/InteractionDevis', name: 'interactionDevis')]
+public function route4(DevisRepository $devisRepositoryy): Response
+{
+    $user = $this->getUser(); // Récupère l'utilisateur connecté
+    
+    $devis = $devisRepositoryy->findBy(['idClient' => $user]);
+
+    return $this->render('security/devis/interaction.html.twig', [
+        'devis' => $devis,
+    ]);
+}
    
 
-    #[Route('/recapitulatif', name: 'recapitulatif', methods: ['GET'])]
-    public function recapitulatifAction(Request $request, Security $security): Response
-    {
-        $user = $security->getUser(); // Récupère l'utilisateur connecté
 
-        // Vérifiez si l'utilisateur est connecté
-        if (!$user) {
-            // Gérez le cas où l'utilisateur n'est pas connecté, par exemple, redirigez-le vers la page de connexion
-            return $this->redirectToRoute('app_login');
-        }
+    #[Route('/recapitulatif/{id}', name: 'recapitulatif', methods: ['GET'])]
+    public function recapitulatifAction(int $id,Request $request, DevisRepository $devisRepository): Response
+    {
+        $devis = $devisRepository->find($id);
 
         // Récupérer les choix du formulaire depuis les paramètres de l'URL
         $siteEcom = $request->query->get('siteEcom');
@@ -130,7 +136,7 @@ public function devisAction(Request $request, DevisRepository $devisRepository):
         $quantiteShooting = $request->request->get('quantiteShooting');
 
         return $this->render('security/devis/recapitulatif.html.twig', [
-            'user' => $user, // Passer l'objet utilisateur au template
+            'devis' => $devis,
             'siteEcom' => $siteEcom,
             'siteVitrine' => $siteVitrine,
             'siteCustom' => $siteCustom,

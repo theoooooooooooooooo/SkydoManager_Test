@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block nav %}
+    {% include 'nav.html.twig' %}
+{% endblock %} 
+
+{% block body %}
+<h1>Veuillez cliquer sur le lien pour consulter le Devis</h1>
+<div class="content">
+{% for item in devis %}
+    <button><a href="{{ path('recapitulatif', {'id': item.id}) }}">Consultation de devis</a></button>
+{% endfor %}
+</div>
+
+{% endblock %}

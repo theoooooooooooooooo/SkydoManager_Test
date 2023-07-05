@@ -8,7 +8,7 @@
 
 {% block body %}
     <h1>Récapitulatif du devis</h1>
-    <table>
+    <table> 
         <tr>
             <th>Désignation</th>
             <th>Quantité</th>
@@ -18,66 +18,66 @@
         {% if siteEcom is not empty %}
         <tr>
             <td>Site Ecommerce</td>
-            <td>{{ quantiteEcom }} </td>            
-            <td>{{ prixEcom }} €</td>
+            <td>{{ devis.quantiteEcom }} </td>            
+            <td>{{ devis.prixEcom }} €</td>
         </tr>
         {% endif %}
 
         {% if siteVitrine is not empty %}
         <tr>
             <td>Site Vitrine</td>
-            <td>{{ quantiteVitrine }} </td>
-            <td>{{ prixVitrine }} €</td>
+            <td>{{ devis.quantiteVitrine }} </td>
+            <td>{{ devis.prixVitrine }} €</td>
         </tr>
         {% endif %}
 
         {% if siteCustom is not empty %}
         <tr>
             <td>Site Custom</td>
-            <td>{{ quantiteCustom }} </td>
-            <td>{{ prixCustom }} €</td>
+            <td>{{ devis.quantiteCustom }} </td>
+            <td>{{ devis.prixCustom }} €</td>
         </tr>
         {% endif %}
 
         {% if maintenance is not empty %}
         <tr>
             <td>Maintenance & Sécurisation</td>
-            <td>{{ quantiteMaintenance }} </td>
-            <td>{{ prixMaintenance }} €</td>
+            <td>{{ devis.quantiteMaintenance }} </td>
+            <td>{{ devis.prixMaintenance }} €</td>
         </tr>
         {% endif %} 
 
         {% if logo is not empty %}
         <tr>
             <td>Création de logo</td>
-            <td>{{ quantiteLogo }} </td>
-            <td>{{ prixLogo }} €</td>
+            <td>{{ devis.quantiteLogo }} </td>
+            <td>{{ devis.prixLogo }} €</td>
         </tr>
         {% endif %}
 
         {% if identiteVisuelle is not empty %}
         <tr>
             <td>Identité Visuelle</td>
-            <td>{{ quantiteIdVisuelle }} </td>
-            <td>{{ prixIdVisuelle }} €</td>
+            <td>{{ devis.quantiteIdVisuelle }} </td>
+            <td>{{ devis.prixIdVisuelle }} €</td>
         </tr>
         {% endif %}
 
         {% if print is not empty %}
         <tr>
             <td>Flyer - 4/3 - Affiches</td>
-            <td>{{ quantitePrint }} </td>
-            <td>{{ prixPrint }} €</td>
+            <td>{{ devis.quantitePrint }} </td>
+            <td>{{ devis.prixPrint }} €</td>
         </tr>
         {% endif %}
 
         {% if shooting is not empty %}
         <tr>
             <td>Shooting photo</td>
-            <td>{{ quantiteShooting}} </td>
-            <td>{{ prixShooting }} €</td>
+            <td>{{ devis.quantiteShooting}} </td>
+            <td>{{ devis.prixShooting }} €</td>
         </tr>
         {% endif %}
     </table>
-    <p> {{ prixTotal }} €</p>
+    <p> {{ devis.prixTotal }} €</p>
 {% endblock %}
