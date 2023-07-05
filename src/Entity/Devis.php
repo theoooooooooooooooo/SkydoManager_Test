@@ -3,8 +3,8 @@
 namespace App\Entity;
 
 use App\Entity\Client;
-use App\Repository\DevisRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\DevisRepository;
 
 #[ORM\Entity(repositoryClass: DevisRepository::class)]
 class Devis
@@ -22,7 +22,7 @@ class Devis
     private ?string $siteEcom = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $siret = null;
+    private ?string $siteVitrine = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $siteCustom = null;
@@ -66,32 +66,32 @@ class Devis
     #[ORM\Column(type: 'integer', nullable: true)]
     private ?int $prixShooting = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $quantiteEcom = null;
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private ?int $quantiteEcom = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $quantiteVitrine = null;
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private ?int $quantiteVitrine = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $quantiteCustom = null;
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private ?int $quantiteCustom = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $quantiteMaintenance = null;
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private ?int $quantiteMaintenance = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $quantiteLogo = null;
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private ?int $quantiteLogo = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $quantiteIdVisuelle = null;
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private ?int $quantiteIdVisuelle = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $quantitePrint = null;
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private ?int $quantitePrint = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $quantiteShooting = null;
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private ?int $quantiteShooting = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $prixTotal = null;
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private ?int $prixTotal = null;
 
     public function getId(): ?int
     {
@@ -122,14 +122,14 @@ class Devis
         return $this;
     }
 
-    public function getSiret(): ?string
+    public function getSiteVitrine(): ?string
     {
-        return $this->siret;
+        return $this->siteVitrine;
     }
 
-    public function setSiret(?string $siret): static
+    public function setSiteVitrine(?string $siteVitrine): static
     {
-        $this->siret = $siret;
+        $this->siteVitrine = $siteVitrine;
 
         return $this;
     }
@@ -196,7 +196,7 @@ class Devis
 
     public function getShooting(): ?string
     {
-        return $this->print;
+        return $this->shooting;
     }
 
     public function setShooting(?string $shooting): static
@@ -208,36 +208,36 @@ class Devis
 
 //Prix
 
-    public function getPrixEcom(): ?int
+    public function getPrixSiteEcom(): ?int
     {
         return $this->prixEcom !== null ? (int) $this->prixEcom : null;
     }
 
-    public function setPrixEcom(?int $prixEcom): static
+    public function setPrixSiteEcom(?int $prixEcom): static
     {
         $this->prixEcom = $prixEcom !== null ? (string) $prixEcom : null;
 
         return $this;
     }
 
-    public function getPrixVitrine(): ?int
+    public function getPrixSiteVitrine(): ?int
     {
         return $this->prixVitrine !== null ? (int) $this->prixVitrine : null;
     }
 
-    public function setPrixVitrine(?int $prixVitrine): static
+    public function setPrixSiteVitrine(?int $prixVitrine): static
     {
         $this->prixVitrine = $prixVitrine !== null ? (string) $prixVitrine : null;
 
         return $this;
     }
 
-    public function getPrixCustom(): ?int
+    public function getPrixSiteCustom(): ?int
     {
         return $this->prixCustom !== null ? (int) $this->prixCustom : null;
     }
 
-    public function setPrixCustom(?int $prixCustom): static
+    public function setPrixSiteCustom(?int $prixCustom): static
     {
         $this->prixCustom = $prixCustom !== null ? (string) $prixCustom : null;
 
@@ -268,12 +268,12 @@ class Devis
         return $this;
     }
 
-    public function getPrixIdVisuelle(): ?int
+    public function getPrixIdentiteVisuelle(): ?int
     {
         return $this->prixIdVisuelle !== null ? (int) $this->prixIdVisuelle : null;
     }
 
-    public function setPrixIdVisuelle(?int $prixIdVisuelle): static
+    public function setPrixIdentiteVisuelle(?int $prixIdVisuelle): static
     {
         $this->prixIdVisuelle = $prixIdVisuelle !== null ? (string) $prixIdVisuelle : null;
 
@@ -318,100 +318,101 @@ class Devis
 
     //Quantite
 
-    public function getQuantiteEcom(): ?string
-    {
-        return $this->quantiteEcom;
-    }
+    public function getQuantiteEcom(): ?int
+{
+    return $this->quantiteEcom;
+}
 
-    public function setQuantiteEcom(?string $quantiteEcom): static
-    {
-        $this->quantiteEcom = $quantiteEcom;
+public function setQuantiteEcom(?int $quantiteEcom): static
+{
+    $this->quantiteEcom = $quantiteEcom;
 
-        return $this;
-    }
+    return $this;
+}
 
-    public function getQuantiteVitrine(): ?string
-    {
-        return $this->quantiteVitrine;
-    }
+public function getQuantiteVitrine(): ?int
+{
+    return $this->quantiteVitrine;
+}
 
-    public function setQuantiteVitrine(?string $quantiteVitrine): static
-    {
-        $this->quantiteVitrine = $quantiteVitrine;
+public function setQuantiteVitrine(?int $quantiteVitrine): static
+{
+    $this->quantiteVitrine = $quantiteVitrine;
 
-        return $this;
-    }
-    
-    public function getQuantiteCustom(): ?string
-    {
-        return $this->quantiteCustom;
-    }
+    return $this;
+}
 
-    public function setQuantiteCustom(?string $quantiteCustom): static
-    {
-        $this->quantiteCustom = $quantiteCustom;
+public function getQuantiteCustom(): ?int
+{
+    return $this->quantiteCustom;
+}
 
-        return $this;
-    }
+public function setQuantiteCustom(?int $quantiteCustom): static
+{
+    $this->quantiteCustom = $quantiteCustom;
 
-    public function getQuantiteMaintenance(): ?string
-    {
-        return $this->quantiteMaintenance;
-    }
+    return $this;
+}
 
-    public function setQuantiteMaintenance(?string $quantiteMaintenance): static
-    {
-        $this->quantiteMaintenance = $quantiteMaintenance;
+public function getQuantiteMaintenance(): ?int
+{
+    return $this->quantiteMaintenance;
+}
 
-        return $this;
-    }
+public function setQuantiteMaintenance(?int $quantiteMaintenance): static
+{
+    $this->quantiteMaintenance = $quantiteMaintenance;
 
-    public function getQuantiteLogo(): ?string
-    {
-        return $this->quantiteLogo;
-    }
+    return $this;
+}
 
-    public function setQuantiteLogo(?string $quantiteLogo): static
-    {
-        $this->quantiteLogo = $quantiteLogo;
+public function getQuantiteLogo(): ?int
+{
+    return $this->quantiteLogo;
+}
 
-        return $this;
-    }
+public function setQuantiteLogo(?int $quantiteLogo): static
+{
+    $this->quantiteLogo = $quantiteLogo;
 
-    public function getQuantiteIdVisuelle(): ?string
-    {
-        return $this->quantiteIdVisuelle;
-    }
+    return $this;
+}
 
-    public function setQuantiteIdVisuelle(?string $quantiteIdVisuelle): static
-    {
-        $this->quantiteIdVisuelle = $quantiteIdVisuelle;
+public function getQuantiteIdVisuelle(): ?int
+{
+    return $this->quantiteIdVisuelle;
+}
 
-        return $this;
-    }
+public function setQuantiteIdVisuelle(?int $quantiteIdVisuelle): static
+{
+    $this->quantiteIdVisuelle = $quantiteIdVisuelle;
 
-    public function getQuantitePrint(): ?string
-    {
-        return $this->quantitePrint;
-    }
+    return $this;
+}
 
-    public function setQuantitePrint(?string $quantitePrint): static
-    {
-        $this->quantitePrint = $quantitePrint;
+public function getQuantitePrint(): ?int
+{
+    return $this->quantitePrint;
+}
 
-        return $this;
-    }
+public function setQuantitePrint(?int $quantitePrint): static
+{
+    $this->quantitePrint = $quantitePrint;
 
-    public function getQuantiteShooting(): ?string
-    {
-        return $this->quantiteShooting;
-    }
+    return $this;
+}
 
-    public function setQuantiteShooting(?string $quantiteShooting): static
-    {
-        $this->quantiteShooting = $quantiteShooting;
+public function getQuantiteShooting(): ?int
+{
+    return $this->quantiteShooting;
+}
 
-        return $this;
-    }
+public function setQuantiteShooting(?int $quantiteShooting): static
+{
+    $this->quantiteShooting = $quantiteShooting;
+
+    return $this;
+}
+
 
 }
