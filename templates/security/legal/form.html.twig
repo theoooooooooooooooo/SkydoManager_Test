@@ -18,7 +18,7 @@
             {{ form_widget(form.siret) }}
         </div>
         <div class="custom-form-row">
-            {{ form_label(form.adresse) }}
+            {{ form_label(form.adresse) }} 
             {{ form_widget(form.adresse) }}
         </div>
         <div class="custom-form-row">
@@ -56,6 +56,14 @@
         <div class="custom-form-row">
             {{ form_label(form.delaisLivraison) }}
             {{ form_widget(form.delaisLivraison) }}
+        </div>
+        <div class="custom-form-row">
+            {{ form_label(form.ProduitService) }}
+            {{ form_widget(form.ProduitService) }}
+        </div>
+        <div class="custom-form-row">
+            {{ form_label(form.PersonneAContacter) }}
+            {{ form_widget(form.PersonneAContacter) }}
         </div>
         <button type="submit">Enregistrer</button>
         {{ form_end(form) }}

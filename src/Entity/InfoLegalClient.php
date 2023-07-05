@@ -55,6 +55,12 @@ class InfoLegalClient
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $delaisLivraison = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $ProduitService = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $PersonneAContacter = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -212,6 +218,30 @@ class InfoLegalClient
     public function setDelaisLivraison(?string $delaisLivraison): static
     {
         $this->delaisLivraison = $delaisLivraison;
+
+        return $this;
+    }
+
+    public function getProduitService(): ?string
+    {
+        return $this->ProduitService;
+    }
+
+    public function setProduitService(?string $ProduitService): static
+    {
+        $this->ProduitService = $ProduitService;
+
+        return $this;
+    }
+
+    public function getPersonneAContacter(): ?string
+    {
+        return $this->PersonneAContacter;
+    }
+
+    public function setPersonneAContacter(?string $PersonneAContacter): static
+    {
+        $this->PersonneAContacter = $PersonneAContacter;
 
         return $this;
     }

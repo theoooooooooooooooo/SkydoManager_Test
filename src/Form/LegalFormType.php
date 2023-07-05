@@ -104,6 +104,19 @@ class LegalFormType extends AbstractType
             'attr' => [
                 'class' => 'custom-label-input'
             ]
+        ])
+        ->add('ProduitService', TextType::class, [
+            'label' => 'Produit/Service (veuillez écrire le produit et le service si vous avez les deux)',
+            'required' => true,
+            'attr' => [
+                'class' => 'custom-label-input'
+            ]
+        ])->add('PersonneAContacter', TextType::class, [
+            'label' => 'Personne à contacter',
+            'required' => true,
+            'attr' => [
+                'class' => 'custom-label-input'
+            ]
         ]);
 }
 

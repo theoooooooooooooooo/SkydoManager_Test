@@ -1,0 +1,65 @@
+.form {
+    width: 50%;
+    margin: 0 auto;
+  }
+  
+  .form label {
+    display: block;
+    margin-bottom: 30px;
+  }
+  
+  .form input[type="text"],
+  .form input[type="email"],
+  .form input[type="tel"],
+  .form input[type="password"],
+  .form input[type="number"],
+  .form select,
+  .form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 30px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+
+  .form input[type="checkbox"]{
+    margin-bottom: 30px;
+  }
+  
+  .form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .form button {
+    background: black;
+    color: #fff;
+  }
+
+  .custom-form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; 
+  }
+  
+  .custom-form-row label {
+    width: 200px;
+    padding-right: 10px;
+    font-size: 20px;
+  }
+
+  .form-row {
+    display: flex;
+    align-items: center;
+}
+
+.form-label {
+    width: 150px; /* ajustez la largeur selon vos besoins */
+    font-size: 20px;
+}
+
+.form-widget {
+    flex: 1;
+}

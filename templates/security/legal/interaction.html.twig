@@ -12,6 +12,7 @@
     {% for item in legal %}
         <button><a href="{{ path('mentionLegale', {id: item.id}) }}">Mentions légales pour le client</a></button>
         <br>
+        <br>
         <button><a href="{{ path('cgv', {id: item.id}) }}">CGV pour le client</a></button>
     {% endfor %}
 </div>
