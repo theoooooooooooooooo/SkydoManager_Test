@@ -9,7 +9,54 @@
 <div class="form">
     <form method="POST" action="{{path('legal')}}">
         {{ form_start(form) }}
-        {{ form_widget(form) }}
+        <div class="custom-form-row">
+            {{ form_label(form.raisonSociale) }}
+            {{ form_widget(form.raisonSociale) }}
+        </div>
+        <div class="custom-form-row">
+            {{ form_label(form.siret) }}
+            {{ form_widget(form.siret) }}
+        </div>
+        <div class="custom-form-row">
+            {{ form_label(form.adresse) }}
+            {{ form_widget(form.adresse) }}
+        </div>
+        <div class="custom-form-row">
+            {{ form_label(form.urlSite) }}
+            {{ form_widget(form.urlSite) }}
+        </div>
+        <div class="custom-form-row">
+            {{ form_label(form.email) }}
+            {{ form_widget(form.email) }}
+        </div>
+        <div class="custom-form-row">
+            {{ form_label(form.telephone) }}
+            {{ form_widget(form.telephone) }}
+        </div>
+        <div class="custom-form-row">
+            {{ form_label(form.NomSite) }}
+            {{ form_widget(form.NomSite) }}
+        </div>
+        <div class="custom-form-row">
+            {{ form_label(form.DirecteurPublication) }}
+            {{ form_widget(form.DirecteurPublication) }}
+        </div>
+        <div class="custom-form-row">
+            {{ form_label(form.MoyenContact) }}
+            {{ form_widget(form.MoyenContact) }}
+        </div>
+        <div class="custom-form-row">
+            {{ form_label(form.ModePaiement) }}
+            {{ form_widget(form.ModePaiement) }}
+        </div>
+        <div class="custom-form-row">
+            {{ form_label(form.JoursHoraire) }}
+            {{ form_widget(form.JoursHoraire) }}
+        </div>
+        <div class="custom-form-row">
+            {{ form_label(form.delaisLivraison) }}
+            {{ form_widget(form.delaisLivraison) }}
+        </div>
         <button type="submit">Enregistrer</button>
         {{ form_end(form) }}
     </form>
