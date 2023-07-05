@@ -1,8 +1,9 @@
 <nav>
-        
+            <a href="{{ path('accueil') }}">
+            <img src="{{ asset('images/icone_skydo.png') }}" alt="Logo" class="logo-image"></a>
             <a href="{{path('accueil')}}">Accueil</a>
-            <a href="{{path('legal')}}">Formulaire CGV et Mention Légale</a>
-            <a href="{{path('interaction')}}">Consultation CGV et Mention Légale</a>
+            <a href="{{path('legal')}}">Formulaire CGV et Mentions Légales</a>
+            <a href="{{path('interaction')}}">Consultation CGV et Mentions Légales</a>
             <a href="{{path('devis')}}">Formulaire de Création de devis</a>
             <a href="{{ path('interactionDevis')}}">Consultation de devis</a>
             <a href="{{ path('app_logout') }}">Déconnexion</a>

@@ -15,31 +15,31 @@
             <th>Prix</th>
         </tr>
         
-        {% if siteEcom is not empty %}
+        {% if devis.siteEcom is not empty %}
         <tr>
             <td>Site Ecommerce</td>
             <td>{{ devis.quantiteEcom }} </td>            
-            <td>{{ devis.prixEcom }} €</td>
+            <td>{{ devis.prixSiteEcom }} €</td>
         </tr>
         {% endif %}
 
-        {% if siteVitrine is not empty %}
+        {% if devis.siteVitrine is not empty %}
         <tr>
             <td>Site Vitrine</td>
             <td>{{ devis.quantiteVitrine }} </td>
-            <td>{{ devis.prixVitrine }} €</td>
+            <td>{{ devis.prixSiteVitrine }} €</td>
         </tr>
         {% endif %}
 
-        {% if siteCustom is not empty %}
+        {% if devis.siteCustom is not empty %}
         <tr>
             <td>Site Custom</td>
             <td>{{ devis.quantiteCustom }} </td>
-            <td>{{ devis.prixCustom }} €</td>
+            <td>{{ devis.prixSiteCustom }} €</td>
         </tr>
         {% endif %}
 
-        {% if maintenance is not empty %}
+        {% if devis.maintenance is not empty %}
         <tr>
             <td>Maintenance & Sécurisation</td>
             <td>{{ devis.quantiteMaintenance }} </td>
@@ -47,7 +47,7 @@
         </tr>
         {% endif %} 
 
-        {% if logo is not empty %}
+        {% if devis.logo is not empty %}
         <tr>
             <td>Création de logo</td>
             <td>{{ devis.quantiteLogo }} </td>
@@ -55,15 +55,15 @@
         </tr>
         {% endif %}
 
-        {% if identiteVisuelle is not empty %}
+        {% if devis.identiteVisuelle is not empty %}
         <tr>
             <td>Identité Visuelle</td>
             <td>{{ devis.quantiteIdVisuelle }} </td>
-            <td>{{ devis.prixIdVisuelle }} €</td>
+            <td>{{ devis.prixIdentiteVisuelle }} €</td>
         </tr>
         {% endif %}
 
-        {% if print is not empty %}
+        {% if devis.print is not empty %}
         <tr>
             <td>Flyer - 4/3 - Affiches</td>
             <td>{{ devis.quantitePrint }} </td>
@@ -71,7 +71,7 @@
         </tr>
         {% endif %}
 
-        {% if shooting is not empty %}
+        {% if devis.shooting is not empty %}
         <tr>
             <td>Shooting photo</td>
             <td>{{ devis.quantiteShooting}} </td>
